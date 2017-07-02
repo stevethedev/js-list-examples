@@ -12,6 +12,17 @@ var tasks = {
             .pipe(uglify())
             .pipe(gulp.dest('dist'));
     },
+    'list-interface': function() {
+        return gulp.src([
+                'src/interface.js',
+                'src/list-interface.js',
+            ])
+            .pipe(concat('list-interface.js'))
+            .pipe(gulp.dest('dist'))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist'));
+    },
 };
 
 for (var task in tasks) {

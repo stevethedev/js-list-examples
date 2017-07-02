@@ -96,3 +96,11 @@ Interface.prototype.implementedBy = function(object) {
     }
     return true;
 };
+
+var ListInterface = new Interface('ListInterface', [
+    'insert',
+    'get',
+    'set',
+    'remove',
+    'count',
+]);
