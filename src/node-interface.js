@@ -22,16 +22,13 @@
  * SOFTWARE.
  */
 
-/**
- * ListInterface defines the required methods for a class that implements this
- * interface.
- *
- * @type {Interface}
- */
-var ListInterface = new Interface('ListInterface', [
-    'insert',
-    'get',
-    'set',
-    'remove',
-    'count',
-]);
+ /**
+  * NodeInterface defines the required methods for a class that implements this
+  * interface.
+  *
+  * @type {Interface}
+  */
+ var NodeInterface = new Interface('NodeInterface', [
+     'setValue',
+     'getValue',
+ ]);
