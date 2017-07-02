@@ -23,6 +23,17 @@ var tasks = {
             .pipe(uglify())
             .pipe(gulp.dest('dist'));
     },
+    'node-interface': function() {
+        return gulp.src([
+                'src/interface.js',
+                'src/node-interface.js',
+            ])
+            .pipe(concat('node-interface.js'))
+            .pipe(gulp.dest('dist'))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist'));
+    },
 };
 
 for (var task in tasks) {
