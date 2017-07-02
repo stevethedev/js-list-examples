@@ -1,0 +1,33 @@
+{
+  "name": "js-list-examples",
+  "version": "1.0.0",
+  "description": "Steve the Dev's Programming - Linked List Code Examples",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevethedev/js-list-examples.git"
+  },
+  "keywords": [
+    "stevethedev",
+    "computer",
+    "science",
+    "data",
+    "structures",
+    "code",
+    "example",
+    "linked",
+    "list"
+  ],
+  "author": "Steven Jimenez <steven@stevethedev.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stevethedev/js-list-examples/issues"
+  },
+  "homepage": "https://github.com/stevethedev/js-list-examples#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  }
+}
