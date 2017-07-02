@@ -34,6 +34,18 @@ var tasks = {
             .pipe(uglify())
             .pipe(gulp.dest('dist'));
     },
+    'sl-node-interface': function() {
+        return gulp.src([
+                'src/interface.js',
+                'src/node-interface.js',
+                'src/sl-node-interface.js',
+            ])
+            .pipe(concat('sl-node-interface.js'))
+            .pipe(gulp.dest('dist'))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist'));
+    },
 };
 
 for (var task in tasks) {
