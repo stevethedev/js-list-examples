@@ -37,7 +37,7 @@
         Node.call(this, value);
         this.nextNode = null;
 
-        SinglyLinkedNode.implementedBy(this);
+        SinglyLinkedNodeInterface.implementedBy(this);
     }
 
     /**

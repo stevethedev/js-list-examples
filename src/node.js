@@ -32,9 +32,7 @@
 function Node(value)
 {
     'use strict';
-
     this.value = value;
-
     NodeInterface.implementedBy(this);
 }
 
