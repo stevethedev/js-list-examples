@@ -18,3 +18,6 @@ These are the files that the dist/* code is generated from.
 ## Distribute Code ##
 * dist/interface : Standalone JavaScript interface class
 * dist/sl-list : Standalone JavaScript singly-linked list class
+
+# Related Entries #
+[Steve the Dev: Implementing the Singly Linked List](https://www.stevethedev.com/blog/programming/implementing-singly-linked-list)
