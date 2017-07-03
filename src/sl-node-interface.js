@@ -22,13 +22,19 @@
  * SOFTWARE.
  */
 
- /**
-  * SinglyLinkedNodeInterface defines the required methods for a class that
-  * implements this interface.
-  *
-  * @type {Interface}
-  */
-var SinglyLinkedNodeInterface = new Interface('NodeInterface', [
-    'setNextNode',
-    'getNextNode',
-], [NodeInterface]);
+(function(global) {
+    'use strict';
+
+     /**
+      * SinglyLinkedNodeInterface defines the required methods for a class that
+      * implements this interface.
+      *
+      * @type {Interface}
+      */
+    var SinglyLinkedNodeInterface = new Interface('NodeInterface', [
+        'setNextNode',
+        'getNextNode',
+    ], [NodeInterface]);
+
+    global.SinglyLinkedNodeInterface = SinglyLinkedNodeInterface;
+})(this);

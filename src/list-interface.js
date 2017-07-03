@@ -22,16 +22,22 @@
  * SOFTWARE.
  */
 
-/**
- * ListInterface defines the required methods for a class that implements this
- * interface.
- *
- * @type {Interface}
- */
-var ListInterface = new Interface('ListInterface', [
-    'insert',
-    'get',
-    'set',
-    'remove',
-    'count',
-]);
+(function(global) {
+    'use strict';
+
+    /**
+     * ListInterface defines the required methods for a class that implements
+     * this interface.
+     *
+     * @type {Interface}
+     */
+    var ListInterface = new Interface('ListInterface', [
+        'insert',
+        'get',
+        'set',
+        'remove',
+        'count',
+    ]);
+
+    global.ListInterface = ListInterface;
+})(this);

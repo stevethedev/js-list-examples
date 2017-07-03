@@ -27,11 +27,13 @@
  *
  * @param {*} value Value the node should carry
  * @constructor
+ * @implements {NodeInterface}
  */
 function Node(value)
 {
+    'use strict';
+
     this.value = value;
-    this.nextNode = null;
 }
 
 Node.prototype = {
@@ -40,6 +42,8 @@ Node.prototype = {
      * @return {*}
      */
     getValue: function() {
+        'use strict';
+
         return this.value;
     },
 
@@ -49,6 +53,8 @@ Node.prototype = {
      * @chainable
      */
     setValue: function(value) {
+        'use strict';
+
         this.value = value;
         return this;
     }

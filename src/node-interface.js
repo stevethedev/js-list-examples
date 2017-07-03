@@ -22,13 +22,19 @@
  * SOFTWARE.
  */
 
- /**
-  * NodeInterface defines the required methods for a class that implements this
-  * interface.
-  *
-  * @type {Interface}
-  */
- var NodeInterface = new Interface('NodeInterface', [
-     'setValue',
-     'getValue',
- ]);
+(function(global) {
+    'use strict';
+
+     /**
+      * NodeInterface defines the required methods for a class that implements
+      * this interface.
+      *
+      * @type {Interface}
+      */
+     var NodeInterface = new Interface('NodeInterface', [
+         'setValue',
+         'getValue',
+     ]);
+
+     global.NodeInterface = NodeInterface;
+})(this);

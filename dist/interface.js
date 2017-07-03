@@ -38,61 +38,67 @@
  *
  * @constructor
  */
-function Interface(name, methods, inherits)
-{
-    // ensure that the constructor at least defines an interface name
-    if (!arguments.length) {
-        throw new Error('Attempted to create Interface without a name.');
-    }
+ function Interface(name, methods, inherits)
+ {
+     'use strict';
 
-    // allow empty interfaces
-    if (!methods || !methods.length) {
-        methods = [];
-    }
+     // ensure that the constructor at least defines an interface name
+     if (!arguments.length) {
+         throw new Error('Attempted to create Interface without a name.');
+     }
 
-    // allow null-inheritance
-    if (!inherits || !inherits.length) {
-        inherits = [];
-    }
+     // allow empty interfaces
+     if (!methods || !methods.length) {
+         methods = [];
+     }
 
-    var _methods = [], i, li;
+     // allow null-inheritance
+     if (!inherits || !inherits.length) {
+         inherits = [];
+     }
 
-    // make sure that all of our method names are strings
-    for (i = 0, li = methods.length; i < li; ++i) {
-        if ('string' !== typeof methods[i]) {
-            throw new Error('Interface<' + name + '> method<' + i + '> name is <' + typeof methods[i] + '>; expected string');
-        }
-        _methods.push(methods[i]);
-    }
+     var _methods = [], i, li;
 
-    // make sure that we include all of our method names in the interface
-    for (i = 0, li = inherits.length; i < li; ++i) {
-        if (Interface !== Object.getPrototypeOf(inherits[i]).constructor) {
-            throw new Error('Interface<' + name + '> attempted to implement non-Interface interface');
-        }
-        _methods = _methods.concat(inherits[i].methods);
-    }
+     // make sure that all of our method names are strings
+     for (i = 0, li = methods.length; i < li; ++i) {
+         if ('string' !== typeof methods[i]) {
+             throw new Error('Interface<' + name + '> method<' + i + '> name is <' + typeof methods[i] + '>; expected string');
+         }
+         _methods.push(methods[i]);
+     }
 
-    // attach the methods in a way that doesn't allow them to be updated
-    Object.defineProperties(this, {
-        'name': { value: name },
-        'methods': { value: Object.freeze(_methods) }
-    });
-}
+     // make sure that we include all of our method names in the interface
+     for (i = 0, li = inherits.length; i < li; ++i) {
+         if (!Interface.prototype.isPrototypeOf(inherits[i])) {
+             throw new Error('Interface<' + name + '> attempted to implement non-Interface interface');
+         }
+         _methods = _methods.concat(inherits[i].methods);
+     }
 
-/**
- * Duck Types an object to determine whether it implements all of the methods
- * from the Interface.
- *
- * @param  {Object} object Object to check the interface against
- * @return {boolean} true or throws an error
- */
-Interface.prototype.implementedBy = function(object) {
-    var methods = this.methods;
-    for (var i = 0, li = methods.length; i < li; ++i) {
-        if ('function' !== typeof object[methods[i]]) {
-            throw new Error('Interface<' + name + '> requires the method ' + methods[i]);
-        }
-    }
-    return true;
-};
+     // attach the methods in a way that doesn't allow them to be updated
+     Object.defineProperties(this, {
+         'name': { value: name },
+         'methods': { value: Object.freeze(_methods) }
+     });
+ }
+
+ /**
+  * Duck Types an object to determine whether it implements all of the methods
+  * from the Interface.
+  *
+  * @param  {Object} object Object to check the interface against
+  * @return {boolean} true or throws an error
+  */
+ Interface.prototype = {
+     implementedBy: function(object) {
+         'use strict';
+
+         var methods = this.methods;
+         for (var i = 0, li = methods.length; i < li; ++i) {
+             if ('function' !== typeof object[methods[i]]) {
+                 throw new Error('Interface<' + name + '> requires the method ' + methods[i]);
+             }
+         }
+         return true;
+     },
+ };

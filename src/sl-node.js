@@ -22,39 +22,48 @@
  * SOFTWARE.
  */
 
-/**
- * Variant of a Node that links in one direction
- *
- * @param {*} value Value the node should carry
- * @constructor
- */
-function SinglyLinkedNode(value)
-{
-    Node.call(this, value);
-    this.nextNode = null;
-}
+(function(global) {
+    'use strict';
 
-/**
- * Establish the prototype chain
- * @type {Node}
- */
-SinglyLinkedNode.prototype = new Node(null);
+    /**
+     * Variant of a Node that links in one direction
+     *
+     * @param {*} value Value the node should carry
+     * @constructor
+     * @implements {SinglyLinkedNodeInterface}
+     */
+    function SinglyLinkedNode(value)
+    {
+        Node.call(this, value);
+        this.nextNode = null;
+    }
 
-/**
- * Gets the next node in the chain
- * @return {SinglyLinkedNodeInterface}
- */
-SinglyLinkedNode.prototype.getNextNode = function() {
-    return this.nextNode;
-}
+    /**
+     * Establish the prototype chain
+     * @type {Node}
+     */
+    SinglyLinkedNode.prototype = new Node(null);
 
-/**
- * Sets the next node in the chain
- * @param  {SinglyLinkedNodeInterface} node
- * @chainable
- */
-SinglyLinkedNode.prototype.setNextNode = function(node) {
-    SinglyLinkedNodeInterface.implementedBy(node);
-    this.nextNode = node;
-    return this;
-}
+    /**
+     * Gets the next node in the chain
+     * @return {SinglyLinkedNodeInterface}
+     */
+    SinglyLinkedNode.prototype.getNextNode = function() {
+        return this.nextNode;
+    };
+
+    /**
+     * Sets the next node in the chain
+     * @param  {SinglyLinkedNodeInterface} node
+     * @chainable
+     */
+    SinglyLinkedNode.prototype.setNextNode = function(node) {
+        if (null !== node) {
+            SinglyLinkedNodeInterface.implementedBy(node);
+        }
+        this.nextNode = node;
+        return this;
+    };
+
+    global.SinglyLinkedNode = SinglyLinkedNode;
+})(this);
