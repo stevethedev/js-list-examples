@@ -262,6 +262,8 @@ function Node(value)
     'use strict';
 
     this.value = value;
+
+    NodeInterface.implementedBy(this);
 }
 
 Node.prototype = {
@@ -326,6 +328,8 @@ Node.prototype = {
     {
         Node.call(this, value);
         this.nextNode = null;
+
+        SinglyLinkedNode.implementedBy(this);
     }
 
     /**
