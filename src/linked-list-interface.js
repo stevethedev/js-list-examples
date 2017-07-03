@@ -26,18 +26,15 @@
     'use strict';
 
     /**
-     * ListInterface defines the required methods for a class that implements
-     * this interface.
+     * LinkedListInterface defines the required methods for a class that
+     * implements this interface.
      *
      * @type {Interface}
      */
-    var ListInterface = new Interface('ListInterface', [
-        'insert',
-        'get',
-        'set',
-        'remove',
-        'count',
-    ]);
+    var LinkedListInterface = new Interface('LinkedListInterface', [
+        'getNode',
+        'createNode',
+    ], [ListInterface]);
 
-    global.ListInterface = ListInterface;
+    global.LinkedListInterface = LinkedListInterface;
 })(this);

@@ -21,6 +21,7 @@ var tasks = {
                 'src/node-interface.js',
                 'src/sl-node-interface.js',
                 'src/list-interface.js',
+                'src/linked-list-interface.js',
                 'src/sl-list-interface.js',
                 'src/node.js',
                 'src/sl-node.js',
