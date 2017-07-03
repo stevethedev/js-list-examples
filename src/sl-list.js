@@ -26,12 +26,14 @@
  * Creates a singly-linked list data structure
  *
  * @constructor
- * @implements {SinglyLinkedListInterface}
+ * @implements {LinkedListInterface}
  */
 function SinglyLinkedList()
 {
     'use strict';
     this.headNode = null;
+
+    LinkedListInterface.implementedBy(this);
 }
 
 SinglyLinkedList.prototype = {
@@ -42,26 +44,32 @@ SinglyLinkedList.prototype = {
      *
      * @param  {*} value
      * @param  {integer=} index
-     * 
+     *
      * @chainable
      */
     insert: function(value, index) {
         'use strict';
 
+        // validate paramters
         if (0 === arguments.length) {
             throw new Error('SinglyLinkedList.insert requires at least one argument');
         }
+
         if (1 === arguments.length) {
             index = null;
         }
+
         if (null !== index && +index !== (+index|0)) { // convert to integer
             throw new Error('SinglyLinkedList.insert expects index to be integer, null, or undefined');
         }
+
+        // business logic
         var node = new SinglyLinkedNode(value);
         if (null === index && null === this.headNode) {
             this.headNode = node;
             return this;
         }
+
         if (null === index) {
             this.getLastNode().setNextNode(node);
             return this;
@@ -88,9 +96,12 @@ SinglyLinkedList.prototype = {
     get: function(index) {
         'use strict';
 
+        // check parameters
         if (0 === arguments.length) {
             throw new Error('SinglyLinkedList.get requires one argument');
         }
+
+        // business logic
         return this.getNode(index).getValue();
     },
 
@@ -105,10 +116,12 @@ SinglyLinkedList.prototype = {
     set: function(index, value) {
         'use strict';
 
+        // check parameters
         if (2 !== arguments.length) {
             throw new Error('SinglyLinkedList.set expects two arguments');
         }
 
+        // business logic
         this.getNode(index).setValue(value);
         return this;
     },
@@ -124,6 +137,7 @@ SinglyLinkedList.prototype = {
     remove: function(index, count) {
         'use strict';
 
+        // check parameters
         if (0 === arguments.length) {
             throw new Error('SinglyLinkedList.remove requires 1 or 2 arguments');
         }
@@ -136,6 +150,8 @@ SinglyLinkedList.prototype = {
         if (+count !== (+count)|0) {
             throw new Error('SinglyLinkedList.remove expected count paramter to be an integer');
         }
+
+        // business logic
         var nextNode = this.getNode(index + count - 1).getNextNode();
         if (0 === +index) {
             this.headNode = nextNode;

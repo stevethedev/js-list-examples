@@ -89,6 +89,8 @@
     // Custom Globals
     "globals"       : {
         "Interface": true,
+        "ListInterface": true,
+        "LinkedListInterface": true,
         "NodeInterface": true,
         "SinglyLinkedNodeInterface": true,
         "SinglyLinkedNode": true
