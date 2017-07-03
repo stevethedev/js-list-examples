@@ -11,7 +11,10 @@ These are the files that the dist/* code is generated from.
 * src/sl-node-interface.js : SinglyLinkedNodeInterface class
 
 ### Classes ###
-* src/node.js : SinglyLinkedNodeInterface class
+* src/node.js : Node
+* src/sl-node.js : SinglyLinkedNode
+* src/sl-list.js : SinglyLinkedList
 
 ## Distribute Code ##
-* dist/interface : JavaScript interface class
+* dist/interface : Standalone JavaScript interface class
+* dist/sl-list : Standalone JavaScript singly-linked list class
