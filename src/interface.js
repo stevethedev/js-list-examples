@@ -96,7 +96,7 @@
          var methods = this.methods;
          for (var i = 0, li = methods.length; i < li; ++i) {
              if ('function' !== typeof object[methods[i]]) {
-                 throw new Error('Interface<' + name + '> requires the method ' + methods[i]);
+                 throw new Error('Interface<' + this.name + '> requires the method ' + methods[i]);
              }
          }
          return true;

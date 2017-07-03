@@ -64,7 +64,7 @@ SinglyLinkedList.prototype = {
         }
 
         // business logic
-        var node = new SinglyLinkedNode(value);
+        var node = this.createNode(value);
         if (null === index && null === this.headNode) {
             this.headNode = node;
             return this;
@@ -215,5 +215,16 @@ SinglyLinkedList.prototype = {
             node = node.getNextNode();
         }
         return node;
+    },
+
+    /**
+     * Creates a new node
+     * @param  {*}  value   Value to insert into the node
+     * @return {SinglyLinkedNode}
+     */
+    createNode: function(value) {
+        'use strict';
+
+        return new SinglyLinkedNode(value);
     },
 };
